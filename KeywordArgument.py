@@ -17,6 +17,8 @@ def UnpackingArgumentList(*args):
 listInput = [3, 6,9]
 UnpackingArgumentList(*listInput)
 
+# Dictionaries with Keyword arguments with operator **
+
 
 
 
