@@ -2,6 +2,7 @@ import glob
 import shutil
 import os
 
+#OS is Mac
 path = '/Users/pboopathi/Downloads/'
 
 def move_file(sourcepath, destinationpath):
@@ -16,7 +17,7 @@ def move_file(sourcepath, destinationpath):
         shutil.move(source, destinationpath)
 
 
-def move_docfiles():
+def move_docfiles(destinationpath):
     dst_fldr = path + 'DocFiles'
     try:
         os.makedirs(path + 'DocFiles')  # it creates the destination folder 'DocFiles'
@@ -35,5 +36,5 @@ if __name__ == "__main__":
     sourcefolder = 'Source'
     Destinationfolder = 'Destination'
     move_file(path + sourcefolder, path + Destinationfolder)
-    move_docfiles()
+    move_docfiles(path)
     pass
