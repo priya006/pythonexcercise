@@ -18,6 +18,7 @@ def move_file(sourcepath, destinationpath):
 
 
 def move_docfiles(destinationpath):
+    ''' Move .Doc files from Source to 'DocFiles' folder '''
     dst_fldr = path + 'DocFiles'
     try:
         os.makedirs(path + 'DocFiles')  # it creates the destination folder 'DocFiles'
@@ -32,9 +33,26 @@ def move_docfiles(destinationpath):
             pass
 
 
+def move_zipfiles(destinationpath):
+    ''' Move .zip files from Source to 'zipFiles' folder '''
+    dst_fldr = path + 'zipFiles'
+    try:
+        os.makedirs(path + 'zipFiles')  # it creates the destination folder 'zipFiles'
+    except:
+        print('Folder already exist or some error')
+
+    files = glob.iglob(os.path.join(path, "*.zip"))
+    for zip_files in files:
+        if os.path.isfile(zip_files):
+            print('zip File is moved', zip_files)
+            shutil.move(zip_files, dst_fldr)
+            pass
+
+
 if __name__ == "__main__":
     sourcefolder = 'Source'
     Destinationfolder = 'Destination'
     move_file(path + sourcefolder, path + Destinationfolder)
     move_docfiles(path)
+    move_zipfiles(path)
     pass
