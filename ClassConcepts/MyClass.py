@@ -7,7 +7,10 @@ class MyClass:
     def __init__(self, i):
         self.i = i
 
-    def f(self):
-        return 'hello!'
+
+object = MyClass(30)
+print("Object created",object.i)
 
 
+def f(self):
+    return 'hello!'
