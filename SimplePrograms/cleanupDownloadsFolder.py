@@ -34,7 +34,7 @@ def move_docfiles(destinationpath):
                 if not os.path.isfile(dst_fldr):
                     shutil.move(os.path.join(doc_files), os.path.join(dst_fldr))
             except:
-             print('File already is avilable')
+                print('File already is avilable')
     pass
 
 
@@ -69,10 +69,10 @@ def move_movfiles(destinationpath):
         if os.path.isfile(mov_files):
             print('mov File is moved', mov_files)
             # shutil.move(mov_files, dst_fldr)
-           # shutil.move(os.path.join(path, mov_files), os.path.join(dst_fldr, mov_files))
+            # shutil.move(os.path.join(path, mov_files), os.path.join(dst_fldr, mov_files))
             try:
                 if not os.path.isfile(dst_fldr):
-                   shutil.move(os.path.join(mov_files), os.path.join(dst_fldr))
+                    shutil.move(os.path.join(mov_files), os.path.join(dst_fldr))
             except:
                 print('File already is avilable')
             print(path)
@@ -194,7 +194,35 @@ def move_mp4files(destinationpath):
     for mov_files in files:
         if os.path.isfile(mov_files):
             print('mp4 File is moved', mov_files)
-            shutil.move(mov_files, dst_fldr)
+            # shutil.move(mov_files, dst_fldr)
+            try:
+                if not os.path.isfile(dst_fldr):
+                    shutil.move(os.path.join(mov_files), os.path.join(dst_fldr))
+            except:
+                print('File already is avilable')
+            pass
+
+
+def move_jsonfiles(destinationpath):
+    ''' Move .json files from Source to 'jsonFiles' folder '''
+    # create the folder manually
+    dst_fldr = path + '/FormattedJson'
+    try:
+        if not os.path.exists(path + 'FormattedJson'):
+            os.makedirs(path + 'FormattedJson')  # it creates the destination folder 'JsonFiles'
+    except:
+        print('Some error')
+
+    files = glob.iglob(os.path.join(path, "*.json"))
+    for json_files in files:
+        if os.path.isfile(json_files):
+            print('json File is moved', json_files)
+            # shutil.move(mov_files, dst_fldr)
+            try:
+                if not os.path.isfile(dst_fldr):
+                    shutil.move(os.path.join(json_files), os.path.join(dst_fldr))
+            except:
+                print('File already is avilable')
             pass
 
 
@@ -211,4 +239,5 @@ if __name__ == "__main__":
     move_xlsxfiles(path)
     move_docxfiles(path)
     move_mp4files(path)
+    move_jsonfiles(path)
     pass
