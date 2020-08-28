@@ -26,6 +26,10 @@ def popen_redirectoutputtofile():
     process = subprocess.Popen(["ls", "-a"], stdout=output, stderr=subprocess.PIPE, universal_newlines=True)
     output, errors = process.communicate()
 
+    # stdout has been written to this file.The File content is read and displayed to standard  output
+    with open(path_to_output_file, "r") as f:
+        print(f.read())
+
     pass
 
 
