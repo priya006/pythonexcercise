@@ -40,7 +40,7 @@ def move_docfiles(destinationpath):
 
 def move_zipfiles(destinationpath):
     ''' Move .zip files from Source to 'zipFiles' folder '''
-    dst_fldr = path + 'zipFiles'
+    dst_fldr = path + '/zipFiles'
     try:
         if not os.path.exists(path + 'zipFiles'):
             os.makedirs(path + 'zipFiles')  # it creates the destination folder 'zipFiles'
@@ -57,7 +57,7 @@ def move_zipfiles(destinationpath):
 
 def move_movfiles(destinationpath):
     ''' Move .mov files from Source to 'movFiles' folder '''
-    dst_fldr = path + 'movFiles'
+    dst_fldr = path + '/movFiles'
     try:
         if not os.path.exists(path + 'movFiles'):
             os.makedirs(path + 'movFiles')  # it creates the destination folder 'movFiles'
@@ -69,14 +69,19 @@ def move_movfiles(destinationpath):
         if os.path.isfile(mov_files):
             print('mov File is moved', mov_files)
             # shutil.move(mov_files, dst_fldr)
-            shutil.move(os.path.join(path, mov_files), os.path.join(dst_fldr, mov_files))
+           # shutil.move(os.path.join(path, mov_files), os.path.join(dst_fldr, mov_files))
+            try:
+                if not os.path.isfile(dst_fldr):
+                   shutil.move(os.path.join(mov_files), os.path.join(dst_fldr))
+            except:
+                print('File already is avilable')
             print(path)
             pass
 
 
 def move_pdffiles(destinationpath):
     ''' Move .pdf files from Source to 'pdfFiles' folder '''
-    dst_fldr = path + 'pdfFiles'
+    dst_fldr = path + '/pdfFiles'
     try:
         if not os.path.exists(path + 'pdfFiles'):
             os.makedirs(path + 'pdfFiles')  # it creates the destination folder 'pdfFiles'
@@ -93,7 +98,7 @@ def move_pdffiles(destinationpath):
 
 def move_csvfiles(destinationpath):
     ''' Move .csv files from Source to 'csvFiles' folder '''
-    dst_fldr = path + 'csvFiles'
+    dst_fldr = path + '/csvFiles'
     try:
         if not os.path.exists(path + 'csvFiles'):
             os.makedirs(path + 'csvFiles')  # it creates the destination folder 'csvFiles'
@@ -110,7 +115,7 @@ def move_csvfiles(destinationpath):
 
 def move_pngfiles(destinationpath):
     ''' Move .png files from Source to 'pngFiles' folder '''
-    dst_fldr = path + 'pngFiles'
+    dst_fldr = path + '/pngFiles'
     try:
         if not os.path.exists(path + 'pngFiles'):
             os.makedirs(path + 'pngFiles')  # it creates the destination folder 'pngFiles'
@@ -127,7 +132,7 @@ def move_pngfiles(destinationpath):
 
 def move_dmgfiles(destinationpath):
     ''' Move .dmg files from Source to 'dmgFiles' folder '''
-    dst_fldr = path + 'dmgFiles'
+    dst_fldr = path + '/dmgFiles'
     try:
         if not os.path.exists(path + 'dmgFiles'):
             os.makedirs(path + 'dmgFiles')  # it creates the destination folder 'dmgFiles'
@@ -144,7 +149,7 @@ def move_dmgfiles(destinationpath):
 
 def move_xlsxfiles(destinationpath):
     ''' Move .xlsx files from Source to 'xlsxFiles' folder '''
-    dst_fldr = path + 'xlsxFiles'
+    dst_fldr = path + '/xlsxFiles'
     try:
         if not os.path.exists(path + 'xlsxFiles'):
             os.makedirs(path + 'xlsxFiles')  # it creates the destination folder 'xlsxFiles'
@@ -161,7 +166,7 @@ def move_xlsxfiles(destinationpath):
 
 def move_docxfiles(destinationpath):
     ''' Move .docx files from Source to 'docxFiles' folder '''
-    dst_fldr = path + 'docxFiles'
+    dst_fldr = path + '/docxFiles'
     try:
         if not os.path.exists(path + 'docxFiles'):
             os.makedirs(path + 'docxFiles')  # it creates the destination folder 'docxFiles'
@@ -178,7 +183,7 @@ def move_docxfiles(destinationpath):
 
 def move_mp4files(destinationpath):
     ''' Move .mp4 files from Source to 'mp4Files' folder '''
-    dst_fldr = path + 'mp4Files'
+    dst_fldr = path + '/mp4Files'
     try:
         if not os.path.exists(path + 'mp4Files'):
             os.makedirs(path + 'mp4Files')  # it creates the destination folder 'mp4Files'
