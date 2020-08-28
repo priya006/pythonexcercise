@@ -5,7 +5,7 @@ import os
 # OS is Mac
 path = '/Users/pboopathi/Downloads'
 
-
+# below function can be removed in future
 def move_file(sourcepath, destinationpath):
     ''' Move files from one folder  to another folder '''
 
