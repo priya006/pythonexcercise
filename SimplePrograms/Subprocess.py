@@ -1,6 +1,7 @@
 import subprocess
 
 # Execute Shell command using Python
+from glob import glob
 
 print('*********************************')
 print(f'Check File System Disk Space Usage')
@@ -29,10 +30,21 @@ def popen_redirectoutputtofile():
     # stdout has been written to this file.The File content is read and displayed to standard  output
     with open(path_to_output_file, "r") as f:
         print(f.read())
-
     pass
 
 
+def listing_files():
+    ls = subprocess.Popen(["ls","-p","."] ,stdout=subprocess.PIPE)
+
+    grep = subprocess.Popen(["grep","-v","/$" ],stdin=ls.stdout,stdout=subprocess.PIPE)
+    endOfPipe = grep.stdout
+
+    for line in endOfPipe:
+        print(line)
+
+pass
+
 if __name__ == "__main__":
     popen_redirectoutputtofile()
+    listing_files()
     pass
