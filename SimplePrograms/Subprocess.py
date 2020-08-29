@@ -33,18 +33,19 @@ def popen_redirectoutputtofile():
     pass
 
 
-def listing_files():
-    ls = subprocess.Popen(["ls","-p","."] ,stdout=subprocess.PIPE)
-
-    grep = subprocess.Popen(["grep","-v","/$" ],stdin=ls.stdout,stdout=subprocess.PIPE)
+def listing_files_in_currentDirectory():
+    # ls -p . | grep -v /$
+    ls = subprocess.Popen(["ls", "-p", "."], stdout=subprocess.PIPE)
+    grep = subprocess.Popen(["grep", "-v", "/$"], stdin=ls.stdout, stdout=subprocess.PIPE)
     endOfPipe = grep.stdout
 
     for line in endOfPipe:
-        print(line)
+        print('Listing files', line)
 
-pass
+    pass
+
 
 if __name__ == "__main__":
     popen_redirectoutputtofile()
-    listing_files()
+    listing_files_in_currentDirectory()
     pass
