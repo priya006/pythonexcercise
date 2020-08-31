@@ -1,7 +1,9 @@
+import fnmatch
+import os
 import subprocess
 
 # Execute Shell command using Python
-from glob import glob
+
 
 print('*********************************')
 print(f'Check File System Disk Space Usage')
@@ -45,7 +47,20 @@ def listing_files_in_currentDirectory():
     pass
 
 
+def list_pythonfiles():
+    listOffiles = os.listdir('.')
+    print('listoffilesinthecurrentdirectory -->', listOffiles)
+    pattern = '*.py'
+    for file in listOffiles:
+        if fnmatch.fnmatch(file, pattern):
+            # Test whether FILENAME matches PATTERN
+            print("pythonfilename:", file)
+
+    pass
+
+
 if __name__ == "__main__":
     popen_redirectoutputtofile()
     listing_files_in_currentDirectory()
+    list_pythonfiles()
     pass
