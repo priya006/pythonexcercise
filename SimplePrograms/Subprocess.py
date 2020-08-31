@@ -59,8 +59,28 @@ def list_pythonfiles():
     pass
 
 
+def find_files():
+    # Set up find command
+    findCMD = 'find . -name "*.py"'
+
+    out = subprocess.Popen(findCMD, shell=True, stdin=subprocess.PIPE,
+                           stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # Get standard out and error
+    (stdout, stderr) = out.communicate()
+
+    # Save found files to list
+    filelist = stdout.decode().split()
+    print('*********************************')
+    print(f'Current path')
+    print('*********************************')
+    subprocess.call('pwd')
+    print('Findthe files',filelist)
+    pass
+
+
 if __name__ == "__main__":
     popen_redirectoutputtofile()
     listing_files_in_currentDirectory()
     list_pythonfiles()
+    find_files()
     pass
